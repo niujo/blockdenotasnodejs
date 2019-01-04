@@ -17,12 +17,21 @@ console.log('Yargs',argv);
 
 
 if(command === 'add'){
+ 
+   let note = notes.addNote(argv.title, argv.body);
+   if(note){
+       console.log('Nota creada');
+       console.log('--');
+       console.log(`Title: ${note.title}`)
+       console.log(`Body: ${note.body}`)
+   }else{
+        console.log('El titulo esta tomado')
+   }
 
-    
-    notes.addNote(argv.title, argv.body);
 }else if(command==='list'){
    
     notes.getAll();
+    
 }else if(command==='read'){
    notes.getRead(argv.title);
 }else if (command === 'remove'){
