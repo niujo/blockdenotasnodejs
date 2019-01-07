@@ -21,9 +21,7 @@ if(command === 'add'){
    let note = notes.addNote(argv.title, argv.body);
    if(note){
        console.log('Nota creada');
-       console.log('--');
-       console.log(`Title: ${note.title}`)
-       console.log(`Body: ${note.body}`)
+       notes.logNote(note);
    }else{
         console.log('El titulo esta tomado')
    }
@@ -33,9 +31,19 @@ if(command === 'add'){
     notes.getAll();
     
 }else if(command==='read'){
-   notes.getRead(argv.title);
+   
+    const note= notes.getRead(argv.title);
+   if(note){
+        console.log('nota encontrada');
+        notes.logNote(note);
+   }else{
+       console.log('nota no encontrada');
+   }
+
 }else if (command === 'remove'){
-    notes.getRemove(argv.title);
+    const noteRemovida=notes.getRemove(argv.title);
+    const mensaje = noteRemovida ?'Nota fue removida' : 'Nota no fue encontrada'
+    console.log(mensaje);
 }else {
     console.log('comando no reconocido');
 }

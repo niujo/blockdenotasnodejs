@@ -37,23 +37,46 @@ const addNote=(title, body)=>{
 
 
 const getAll = () =>{
-
     console.log('obtener todas las notas');
 };
 
 const getRead=(title)=>{
-
-    console.log('Lee las notas');
+    const notes = fechNotes();
+    const filterNotes=notes.filter((note)=>note.title === title);
+    return filterNotes[0];
+    
+    //console.log('Lee las notas', title);
 };
 
-const getRemove =(tittle)=>{
+const getRemove =(title)=>{
+    /*
+        fechnote
+        filter notes,removing la  indicada con el titulo y argumento
+        salvar las notas en un nuevo array
+    */
 
-    console.log('se removieron',tittle);
+    const notes = fechNotes();
+
+    const filtroNOTAS = notes.filter((note) => note.title!== title);
+    saveNotes(filtroNOTAS);
+    
+    return notes.length!==filtroNOTAS.length;
+    //console.log('se removieron',title);
 } ;
+
+const logNote  =(note)=>{
+
+    debugger
+
+    console.log('------');
+    console.log(`Title: ${note.title}`)
+    console.log(`Body: ${note.body}`)
+};
 
 module.exports = {
     addNote,
     getAll,
     getRead,
-    getRemove
+    getRemove,
+    logNote
 };
