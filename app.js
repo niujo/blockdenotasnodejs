@@ -22,12 +22,15 @@ const argv= yargs
 })
 .command('list','Listar todas las notas')
 .command('read','leer notas',{
-    
+    title:titleOpcion
 })
-.command('remove','remover una nota')
+.command('remove','remover una nota',{
+    title:titleOpcion
+})
 
 .help()
 .argv;
+//
 const command = argv._[0];
 
 if(command === 'add'){
