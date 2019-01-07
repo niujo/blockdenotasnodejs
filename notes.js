@@ -1,5 +1,3 @@
-console.log('Starting app.js');
-
 /*
 const = cosas fijas
 let = cosas que cambian
@@ -37,7 +35,7 @@ const addNote=(title, body)=>{
 
 
 const getAll = () =>{
-    console.log('obtener todas las notas');
+   return fechNotes();
 };
 
 const getRead=(title)=>{
@@ -72,11 +70,11 @@ const logNote  =(note)=>{
     console.log(`Title: ${note.title}`)
     console.log(`Body: ${note.body}`)
 };
-
 module.exports = {
     addNote,
     getAll,
     getRead,
     getRemove,
     logNote
+    
 };
