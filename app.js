@@ -18,7 +18,7 @@ const bodyOpcion={
 const argv= yargs
 .command('add','add a new note',{
     title:titleOpcion,
-    body:bodyOpciongt  
+    body:bodyOpcion  
 })
 .command('list','Listar todas las notas')
 .command('read','leer notas',{
